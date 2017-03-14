@@ -10,11 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309201745) do
+ActiveRecord::Schema.define(version: 20170314164547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comunas", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "provincias_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["provincias_id"], name: "index_comunas_on_provincias_id", using: :btree
+  end
+
+  create_table "provincias", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "regiones_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["regiones_id"], name: "index_provincias_on_regiones_id", using: :btree
+  end
+
+  create_table "regiones", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "corfo"
+    t.string   "codigo"
+    t.integer  "numero"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                        null: false
@@ -38,4 +83,6 @@ ActiveRecord::Schema.define(version: 20170309201745) do
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end
 
+  add_foreign_key "comunas", "provincias", column: "provincias_id"
+  add_foreign_key "provincias", "regiones", column: "regiones_id"
 end
