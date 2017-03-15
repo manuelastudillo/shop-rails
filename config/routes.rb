@@ -1,17 +1,37 @@
 Rails.application.routes.draw do
-  resources :units
-  resources :categories
-  resources :brands
+
+
+  resources :sales
   get 'dashboard/index'
   root to: 'dashboard#index'
 
+   resources :sales do
+    resources :sale_details
+  end
 
+  resources :clientes
+  resources :items
+  resources :proveedors
+  resources :units
+  resources :categories
+  resources :brands
+  #get 'validate_suggested_brand/index'
+  get '/brands_suggestion', to: 'brands_suggestion#index'
+  get '/validate_suggested_brand', to: 'validate_suggested_brand#index'
+
+
+  #get 'validate_suggested_item/index'
+  get '/items_suggestion', to: 'items_suggestion#index'
+  get '/validate_suggested_item', to: 'validate_suggested_item#index'
+ 
   resources :reset_passwords, only: [:new, :create, :update, :edit]
 
   resources :sessions, only: [:new, :create, :destroy]
 
 resources :users, only: [:new, :create]
 get '/sign_up', to: 'users#new', as: :sign_up
+
+
 
 
 

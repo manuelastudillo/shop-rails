@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  date: 2017-03-15
+  state: 1
+  user_id: 1
+  cliente: one
+
+two:
+  number: 1
+  date: 2017-03-15
+  state: 1
+  user_id: 1
+  cliente: two
