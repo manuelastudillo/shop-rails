@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <div class="row">
     <div class="panel-body">
@@ -16,19 +17,19 @@
 
         <div class="form-group row">
           <div class="col-xs-2">
-            <%= f.label :codigo, "Código" %>
+            <%= f.label :code, "Código" %>
           </div>
           <div class="col-xs-10">
-            <%= f.text_field :codigo, autofocus: true, placeholder: "Código", class: "form-control" %>
+            <%= f.text_field :code, autofocus: true, placeholder: "Código", class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
           <div class="col-xs-2">
-            <%= f.label :descripcion, "Descripción" %>
+            <%= f.label :description, "Descripción" %>
           </div>
           <div class="col-xs-10">
-            <%= f.text_field :descripcion, placeholder: "Descripción", class: "form-control" %>
+            <%= f.text_field :description, placeholder: "Descripción", class: "form-control" %>
           </div>
         </div>
 
@@ -43,7 +44,7 @@
             <%= f.text_field :brand_id %>
           </div>
           <div style="display: none">
-            <%= f.text_field :brand_nombre %>
+            <%= f.text_field :brand_name %>
           </div>
         </div>
 
@@ -53,7 +54,7 @@
             <%= f.label :unit_id, "Unidad" %>
           </div>
           <div class="col-xs-10">
-            <%= f.collection_select :unit_id, @units, :id, :nombre, 
+            <%= f.collection_select :unit_id, @units, :id, :name, 
                   {selected: @item.unit_id, include_blank: 'Seleccione Unidad'},
                   {class: "form-control"} %>
           </div>
@@ -82,22 +83,20 @@
             <%= f.label :category_id, "Categoría" %>
           </div>
           <div class="col-xs-10">
-            <%= f.collection_select :category_id, @categories, :id, :nombre,
+            <%= f.collection_select :category_id, @categories, :id, :name,
                   {selected: @item.category_id, include_blank: 'Seleccione Categoría'}, 
                   {class: "form-control"} %>
           </div>
         </div>
 
-
-
         <div class="form-group row">
           <div class="col-xs-2">
-            <%= f.label :precio, "Precio" %>
+            <%= f.label :price, "Precio" %>
           </div>
           <div class="col-xs-10">
             <div class="input-group">
               <div class="input-group-addon">$</div>
-              <%= f.text_field :precio, placeholder: "Precio", class: "form-control" %>
+              <%= f.text_field :price, placeholder: "Precio", class: "form-control" %>
             </div>
           </div>
         </div>
@@ -107,3 +106,4 @@
     </div>
   </div>
 </div>
+

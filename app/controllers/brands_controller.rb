@@ -3,14 +3,14 @@ class BrandsController < ApplicationController
 
   # GET /brands
   # GET /brands.json
-PAGE_SIZE = 5
+ PAGE_SIZE = 5
 
 def index
  @page = (params[:page] || 0).to_i
  @keywords = params[:keywords]
 
  search = Search.new(@page, PAGE_SIZE, @keywords)
- @brands, @number_of_pages = search.brands_by_nombre
+ @brands, @number_of_pages = search.brands_by_name
 end
 
   # GET /brands/1
@@ -75,6 +75,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brand_params
-      params.require(:brand).permit(:nombre, :slug)
+      params.require(:brand).permit(:name)
     end
 end

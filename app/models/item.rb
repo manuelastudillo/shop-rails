@@ -4,19 +4,17 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :proveedor
 
+ validates :description, presence: true
 
- validates :descripcion, presence: true
-
- def item_descripcion
-  self.descripcion + ( (self.brand != nil) ? ' ' + self.brand.nombre : '' )
+ def item_description
+  self.description + ( (self.brand != nil) ? ' ' + self.brand.name : '' )
  end
 
- def brand_nombre
+ def brand_name
   if self.brand
-   self.brand.nombre
+   self.brand.name
   else
    ''
-
+  end
  end
-end
 end

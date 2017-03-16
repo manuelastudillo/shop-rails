@@ -20,13 +20,13 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.codigo %></td>
-        <td><%= item.item_descripcion %></td>
-        <td><%= item.unit ? item.unit.nombre : '' %></td>
+        <td><%= item.code %></td>
+        <td><%= item.item_description %></td>
+        <td><%= item.unit ? item.unit.name : '' %></td>
         <td><%= item.stock %></td>
         <td><%= item.min_stock %></td>
-        <td><%= item.category ? item.category.nombre : '' %></td>
-        <td><%= item.precio %></td>
+        <td><%= item.category ? item.category.name : '' %></td>
+        <td><%= number_to_currency(item.price) %></td>
         <td><%= item.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= item.updated_at.strftime("%d/%m/%Y") %></td>
         <td>

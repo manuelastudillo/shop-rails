@@ -5,8 +5,8 @@ class CreateSaleDetails < ActiveRecord::Migration[5.0]
       t.integer :number
       t.integer :item_id
       t.integer :qty
-      t.decimal :precio
-      t.string :slug
+      t.integer :price
+      t.string   :slug
       t.timestamps
     end
   end

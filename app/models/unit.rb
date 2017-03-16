@@ -11,7 +11,7 @@
 class Unit < ApplicationRecord
 	include ActiveModel::Validations
 
-	validates :nombre, presence: true
+	validates :name, presence: true
 
-	
+
 end

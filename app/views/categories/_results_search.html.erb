@@ -14,7 +14,7 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.nombre %></td>
+        <td><%= category.name %></td>
         <td><%= category.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= category.updated_at.strftime("%d/%m/%Y") %></td>
         <td>

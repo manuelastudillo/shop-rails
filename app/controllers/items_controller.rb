@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   @keywords = params[:keywords]
 
   search = Search.new(@page, PAGE_SIZE, @keywords)
-  @items, @number_of_pages = search.items_by_descripcion
+  @items, @number_of_pages = search.items_by_description
  end
 
  # GET /items/1
@@ -74,12 +74,12 @@ class ItemsController < ApplicationController
   end
 
   def set_combo_values
-   @units = Unit.all.order(:nombre)
-   @categories = Category.all.order(:nombre)
+   @units = Unit.all.order(:name)
+   @categories = Category.all.order(:name)
   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:codigo, :descripcion, :brand_id, :unit_id, :category_id, :stock, :min_stock, :precio, :proveedor_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+   params.require(:item).permit(:code, :description, :brand_id, :unit_id, :stock, :min_stock, :category_id, :price, :proveedor_id)
+  end
 end

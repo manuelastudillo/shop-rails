@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Codigo:</strong>
-  <%= @item.codigo %>
+  <strong>Code:</strong>
+  <%= @item.code %>
 </p>
 
 <p>
-  <strong>Descripcion:</strong>
-  <%= @item.descripcion %>
+  <strong>Description:</strong>
+  <%= @item.description %>
 </p>
 
 <p>
@@ -21,11 +21,6 @@
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @item.category %>
-</p>
-
-<p>
   <strong>Stock:</strong>
   <%= @item.stock %>
 </p>
@@ -36,13 +31,8 @@
 </p>
 
 <p>
-  <strong>Precio:</strong>
-  <%= @item.precio %>
-</p>
-
-<p>
-  <strong>Proveedor:</strong>
-  <%= @item.proveedor %>
+  <strong>Category:</strong>
+  <%= @item.category %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

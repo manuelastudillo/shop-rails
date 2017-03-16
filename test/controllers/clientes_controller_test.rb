@@ -17,7 +17,7 @@ class ClientesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cliente" do
     assert_difference('Cliente.count') do
-      post clientes_url, params: { cliente: { comuna_id: @cliente.comuna_id, descripcion: @cliente.descripcion, domicilio: @cliente.domicilio, mail: @cliente.mail, nombre: @cliente.nombre, rut: @cliente.rut, telefono1: @cliente.telefono1 } }
+      post clientes_url, params: { cliente: { comuna_id: @cliente.comuna_id, email: @cliente.email, fono: @cliente.fono, last_name: @cliente.last_name, name: @cliente.name, rut: @cliente.rut } }
     end
 
     assert_redirected_to cliente_url(Cliente.last)
@@ -34,7 +34,7 @@ class ClientesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cliente" do
-    patch cliente_url(@cliente), params: { cliente: { comuna_id: @cliente.comuna_id, descripcion: @cliente.descripcion, domicilio: @cliente.domicilio, mail: @cliente.mail, nombre: @cliente.nombre, rut: @cliente.rut, telefono1: @cliente.telefono1 } }
+    patch cliente_url(@cliente), params: { cliente: { comuna_id: @cliente.comuna_id, email: @cliente.email, fono: @cliente.fono, last_name: @cliente.last_name, name: @cliente.name, rut: @cliente.rut } }
     assert_redirected_to cliente_url(@cliente)
   end
 

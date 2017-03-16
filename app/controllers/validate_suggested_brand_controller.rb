@@ -1,9 +1,9 @@
 class ValidateSuggestedBrandController < ApplicationController
   def index
   		brand = []
-		if params[:brand_nombre].present?
-			brand_nombre = params[:brand_nombre]
-			condition = "unaccent(lower(nombre)) = '#{I18n.transliterate(brand_nombre.downcase)}'"
+		if params[:brand_name].present?
+			brand_name = params[:brand_name]
+			condition = "unaccent(lower(name)) = '#{I18n.transliterate(brand_name.downcase)}'"
 			brand = Brand.where(condition)
 		end
 		if !brand.empty?

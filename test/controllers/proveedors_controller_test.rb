@@ -17,7 +17,7 @@ class ProveedorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create proveedor" do
     assert_difference('Proveedor.count') do
-      post proveedors_url, params: { proveedor: { comuna_id: @proveedor.comuna_id, descripcion: @proveedor.descripcion, domicilio: @proveedor.domicilio, mail: @proveedor.mail, nombre: @proveedor.nombre, razon_social: @proveedor.razon_social, rut: @proveedor.rut, telefono1: @proveedor.telefono1, telefono2: @proveedor.telefono2, web: @proveedor.web } }
+      post proveedors_url, params: { proveedor: { comuna_id: @proveedor.comuna_id, email: @proveedor.email, fono: @proveedor.fono, name: @proveedor.name, rut: @proveedor.rut } }
     end
 
     assert_redirected_to proveedor_url(Proveedor.last)
@@ -34,7 +34,7 @@ class ProveedorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update proveedor" do
-    patch proveedor_url(@proveedor), params: { proveedor: { comuna_id: @proveedor.comuna_id, descripcion: @proveedor.descripcion, domicilio: @proveedor.domicilio, mail: @proveedor.mail, nombre: @proveedor.nombre, razon_social: @proveedor.razon_social, rut: @proveedor.rut, telefono1: @proveedor.telefono1, telefono2: @proveedor.telefono2, web: @proveedor.web } }
+    patch proveedor_url(@proveedor), params: { proveedor: { comuna_id: @proveedor.comuna_id, email: @proveedor.email, fono: @proveedor.fono, name: @proveedor.name, rut: @proveedor.rut } }
     assert_redirected_to proveedor_url(@proveedor)
   end
 

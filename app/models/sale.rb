@@ -2,7 +2,7 @@ class Sale < ApplicationRecord
 	has_many :sale_details, inverse_of: :sale, dependent: :destroy
 	has_many :items, through: :sale_details
 	belongs_to :user
-
+    belongs_to :cliente
 	validates :number, presence: true
 	validates :date, presence: true
 
@@ -16,7 +16,7 @@ class Sale < ApplicationRecord
 
 		total = 0.0
 		details.flat_map do |d|
-			total += d.qty * d.precio
+			total += d.qty * d.price
 		end
 		total
 	end
@@ -24,6 +24,6 @@ class Sale < ApplicationRecord
 	private
 
 		def sale_detail_rejectable?(att)
-			att[:item_id].blank? || att[:qty].blank? || att[:precio].blank? || att[:qty].to_f <= 0 || att[:precio].to_f <= 0
+			att[:item_id].blank? || att[:qty].blank? || att[:price].blank? || att[:qty].to_f <= 0 || att[:price].to_f <= 0
 		end
 end

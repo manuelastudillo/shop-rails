@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     var brands_suggested = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace("nombre"),
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       prefetch: window.location.origin + '/brands_suggestion',
       remote: {
@@ -17,17 +17,17 @@ $(document).ready(function() {
           minLength: 1
     },
     {
-      displayKey: 'nombre',
+      displayKey: 'name',
       source: brands_suggested,
       templates: {
         suggestion: function (brand) {
-            return '<p>' + brand.nombre + '</p>';
+            return '<p>' + brand.name + '</p>';
         }
       }
     });
 
 
-    $('#item_brand').typeahead('val', $('#item_brand_nombre').val() );
+    $('#item_brand').typeahead('val', $('#item_brand_name').val() );
 
     $('#item_brand').on('typeahead:select', function(object, datum){
         $('#item_brand_id').val(datum.id);
@@ -44,7 +44,7 @@ $(document).ready(function() {
         url = '/validate_suggested_brand';
         $.ajax({
             url: url,
-            data: { brand_nombre: data },
+            data: { brand_name: data },
             success: function(res){
                 if (res["0"].valid == false){
                     // Marca no válida

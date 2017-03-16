@@ -4,20 +4,20 @@ class SaleDetail < ApplicationRecord
 
 	validates :item_id, presence: true
 	validates :qty, presence: true
-	validates :precio, presence: true
+	validates :price, presence: true
 
 	accepts_nested_attributes_for :item
 
 
 	def subtotal
-		self.qty ? qty * unit_precio : 0
+		self.qty ? qty * unit_price : 0
 	end
 
-	def unit_precio
+	def unit_price
 		if persisted?
-			precio
+			price
 		else
-			item ? item.precio : 0
+			item ? item.price : 0
 		end
 	end
 end

@@ -10,37 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315034954) do
+ActiveRecord::Schema.define(version: 20170316132556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
 
   create_table "brands", force: :cascade do |t|
-    t.string   "nombre"
+    t.string   "name"
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "nombre"
+    t.string   "name"
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "clientes", force: :cascade do |t|
-    t.text     "nombre"
+    t.string   "name"
+    t.string   "last_name"
     t.string   "rut"
-    t.text     "domicilio"
-    t.integer  "telefono1"
-    t.string   "mail"
-    t.text     "descripcion"
+    t.integer  "fono"
+    t.integer  "email"
     t.integer  "comuna_id"
     t.string   "slug"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["comuna_id"], name: "index_clientes_on_comuna_id", using: :btree
   end
 
@@ -53,14 +52,14 @@ ActiveRecord::Schema.define(version: 20170315034954) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "codigo"
-    t.string   "descripcion"
+    t.string   "code"
+    t.string   "description"
     t.integer  "brand_id"
     t.integer  "unit_id"
     t.integer  "category_id"
     t.integer  "stock"
     t.integer  "min_stock"
-    t.integer  "precio"
+    t.integer  "price"
     t.integer  "proveedor_id"
     t.string   "slug"
     t.datetime "created_at",   null: false
@@ -72,19 +71,14 @@ ActiveRecord::Schema.define(version: 20170315034954) do
   end
 
   create_table "proveedors", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "razon_social"
+    t.string   "name"
     t.string   "rut"
-    t.string   "domicilio"
-    t.integer  "telefono1"
-    t.integer  "telefono2"
-    t.integer  "web"
-    t.integer  "mail"
-    t.string   "descripcion"
+    t.integer  "fono"
+    t.integer  "email"
     t.integer  "comuna_id"
     t.string   "slug"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["comuna_id"], name: "index_proveedors_on_comuna_id", using: :btree
   end
 
@@ -107,27 +101,29 @@ ActiveRecord::Schema.define(version: 20170315034954) do
 
   create_table "sale_details", force: :cascade do |t|
     t.integer  "sale_id"
-    t.integer  "numero"
+    t.integer  "number"
     t.integer  "item_id"
     t.integer  "qty"
-    t.integer  "precio"
+    t.integer  "price"
+    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer  "numero"
-    t.date     "fecha"
-    t.integer  "estado"
+    t.integer  "number"
+    t.date     "date"
+    t.integer  "state"
     t.integer  "user_id"
     t.integer  "cliente_id"
+    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_sales_on_cliente_id", using: :btree
   end
 
   create_table "units", force: :cascade do |t|
-    t.string   "nombre"
+    t.string   "name"
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

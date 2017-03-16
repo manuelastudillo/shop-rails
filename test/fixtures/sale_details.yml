@@ -5,11 +5,11 @@ one:
   number: 1
   item_id: 1
   qty: 1
-  precio: 9.99
+  price: 1
 
 two:
   sale_id: 1
   number: 1
   item_id: 1
   qty: 1
-  precio: 9.99
+  price: 1

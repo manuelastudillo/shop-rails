@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     @keywords = params[:keywords]
 
     search = Search.new(@page, PAGE_SIZE, @keywords)
-    @categories, @number_of_pages = search.categories_by_nombre
+    @categories, @number_of_pages = search.categories_by_name
   end
 
   # GET /categories/1
@@ -61,7 +61,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Categoria fue destruido con exito.' }
+      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,6 +74,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:nombre)
+      params.require(:category).permit(:name)
     end
 end

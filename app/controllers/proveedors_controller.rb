@@ -3,16 +3,8 @@ class ProveedorsController < ApplicationController
 
   # GET /proveedors
   # GET /proveedors.json
-  PAGE_SIZE = 10
-
-  # GET /categories
-  # GET /categories.json
   def index
-    @page = (params[:page] || 0).to_i
-    @keywords = params[:keywords]
-
-    search = Search.new(@page, PAGE_SIZE, @keywords)
-    @proveedors, @number_of_pages = search.proveedors_by_nombre
+    @proveedors = Proveedor.all
   end
 
   # GET /proveedors/1
@@ -77,6 +69,6 @@ class ProveedorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proveedor_params
-      params.require(:proveedor).permit(:nombre, :razon_social, :rut, :domicilio, :telefono1, :telefono2, :web, :mail, :descripcion, :comuna_id)
+      params.require(:proveedor).permit(:name, :rut, :fono, :email, :comuna_id)
     end
 end

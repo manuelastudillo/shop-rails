@@ -17,7 +17,7 @@ class SaleDetailsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create sale_detail" do
     assert_difference('SaleDetail.count') do
-      post sale_details_url, params: { sale_detail: { item_id: @sale_detail.item_id, number: @sale_detail.number, precio: @sale_detail.precio, qty: @sale_detail.qty, sale_id: @sale_detail.sale_id } }
+      post sale_details_url, params: { sale_detail: { item_id: @sale_detail.item_id, number: @sale_detail.number, price: @sale_detail.price, qty: @sale_detail.qty, sale_id: @sale_detail.sale_id } }
     end
 
     assert_redirected_to sale_detail_url(SaleDetail.last)
@@ -34,7 +34,7 @@ class SaleDetailsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update sale_detail" do
-    patch sale_detail_url(@sale_detail), params: { sale_detail: { item_id: @sale_detail.item_id, number: @sale_detail.number, precio: @sale_detail.precio, qty: @sale_detail.qty, sale_id: @sale_detail.sale_id } }
+    patch sale_detail_url(@sale_detail), params: { sale_detail: { item_id: @sale_detail.item_id, number: @sale_detail.number, price: @sale_detail.price, qty: @sale_detail.qty, sale_id: @sale_detail.sale_id } }
     assert_redirected_to sale_detail_url(@sale_detail)
   end
 

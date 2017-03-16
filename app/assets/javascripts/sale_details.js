@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 
     	var items_suggested = new Bloodhound({
-    	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace("descripcion"),
+    	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace("description"),
     	  queryTokenizer: Bloodhound.tokenizers.whitespace,
           prefetch: window.location.origin + '/items_suggestion',
     	  remote: {
@@ -19,18 +19,18 @@ $(document).ready(function(){
     		  minLength: 1
     	},
     	{
-    	  displayKey: 'descripcion',
+    	  displayKey: 'description',
     	  source: items_suggested,
           templates: {
             suggestion: function (item) {
-                return '<p>' + item.descripcion + '</p>';
+                return '<p>' + item.description + '</p>';
             }
           }
     	});
 
         $('#sale_details_item').focus();
 
-    	$('#sale_details_item').typeahead('val', $('#sale_details_item_descripcion').val() );
+    	$('#sale_details_item').typeahead('val', $('#sale_details_item_description').val() );
 
     	$('#sale_details_item').on('typeahead:select', function(object, datum){
             $('#sale_details_item').val(datum.id);
@@ -47,7 +47,7 @@ $(document).ready(function(){
         	url = '/validate_suggested_item';
         	$.ajax({
         		url: url,
-        		data: { item_descripcion: data },
+        		data: { item_description: data },
         		success: function(res){
         			if (res["0"].valid == false){
         				// Item no válido
@@ -55,7 +55,7 @@ $(document).ready(function(){
         			}else{
         				// Item correcto
                         $('#sale_details_item_id').val(res["0"].id.toString());
-                        $('#sale_details_precio').val(res["0"].precio.toString());
+                        $('#sale_details_price').val(res["0"].price.toString());
         				$('#sale_details_item').css('border-color', '#ccc');
                         subtotal();
         			}
@@ -64,14 +64,14 @@ $(document).ready(function(){
         });
 
         function subtotal() {
-            $('#sale_details_subtotal').val($('#sale_details_qty').val() * $('#sale_details_precio').val());
+            $('#sale_details_subtotal').val($('#sale_details_qty').val() * $('#sale_details_price').val());
         };
 
         $('#sale_details_qty').blur(function(){
              subtotal();
         });
 
-        $('#sale_details_precio').blur(function(){
+        $('#sale_details_price').blur(function(){
              subtotal();
         });
 

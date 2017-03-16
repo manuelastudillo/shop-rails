@@ -17,7 +17,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create item" do
     assert_difference('Item.count') do
-      post items_url, params: { item: { brand_id: @item.brand_id, category_id: @item.category_id, codigo: @item.codigo, descripcion: @item.descripcion, min_stock: @item.min_stock, precio: @item.precio, proveedor_id: @item.proveedor_id, stock: @item.stock, unit_id: @item.unit_id } }
+      post items_url, params: { item: { brand_id: @item.brand_id, category_id: @item.category_id, code: @item.code, description: @item.description, min_stock: @item.min_stock, price: @item.price, proveedor_id: @item.proveedor_id, stock: @item.stock, unit_id: @item.unit_id } }
     end
 
     assert_redirected_to item_url(Item.last)
@@ -34,7 +34,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item" do
-    patch item_url(@item), params: { item: { brand_id: @item.brand_id, category_id: @item.category_id, codigo: @item.codigo, descripcion: @item.descripcion, min_stock: @item.min_stock, precio: @item.precio, proveedor_id: @item.proveedor_id, stock: @item.stock, unit_id: @item.unit_id } }
+    patch item_url(@item), params: { item: { brand_id: @item.brand_id, category_id: @item.category_id, code: @item.code, description: @item.description, min_stock: @item.min_stock, price: @item.price, proveedor_id: @item.proveedor_id, stock: @item.stock, unit_id: @item.unit_id } }
     assert_redirected_to item_url(@item)
   end
 

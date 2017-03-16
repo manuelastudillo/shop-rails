@@ -6,7 +6,8 @@ class CreateSales < ActiveRecord::Migration[5.0]
       t.integer :state
       t.integer :user_id
       t.references :cliente, foreign_key: true
-      t.string :slug
+      t.string   :slug
+      
       t.timestamps
     end
   end

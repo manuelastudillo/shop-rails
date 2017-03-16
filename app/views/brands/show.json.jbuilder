@@ -1,1 +1,1 @@
-json.partial! "brands/brand", brand: @brand
+json.extract! @brand, :id, :name, :created_at, :updated_at

@@ -1,60 +1,42 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="panel-body">
-      <%= form_for(proveedor) do |f| %>
-        <% if proveedor.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+<%= form_for(proveedor) do |f| %>
+  <% if proveedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
 
-            <ul>
-            <% proveedor.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class="form-group">
-          <%= f.text_field :nombre, autofocus: true, placeholder: "Nombre", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.text_field :razon_social, autofocus: true, placeholder: "Razon Social", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.text_field :rut, autofocus: true, placeholder: "Rut", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.text_field :domicilio, autofocus: true, placeholder: "Domicilio", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.text_field :telefono1, autofocus: true, placeholder: "Telefono", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.text_field :web, autofocus: true, placeholder: "Web", class: "form-control" %>
-        </div>
-
-         <div class="form-group">
-          <%= f.text_field :mail, autofocus: true, placeholder: "Email", class: "form-control" %>
-        </div>
-
-         <div class="form-group">
-        <%= f.label :comuna,"Comuna:", :class => "col-md-2" %>
-        <div class="col-md-10" style="margin-bottom: 10px;">
-        <%= f.select('comuna_id', Comuna.all.collect{|c| [c.nombre, c.id]}, class: 'chosen-select') %>
-        </div>
-        </div>
-      
-         <div class="form-group">
-        <%= f.text_area :descripcion ,placeholder:"Descripción Del proveedor", class: "form-control" %>
-        </div>
-
-        <%= f.submit "Aceptar", class: "btn btn-success" %>
+      <ul>
+      <% proveedor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </ul>
     </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
-</div>
+
+  <div class="field">
+    <%= f.label :rut %>
+    <%= f.text_field :rut %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fono %>
+    <%= f.number_field :fono %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.number_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comuna_id %>
+    <%= f.text_field :comuna_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
