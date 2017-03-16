@@ -56,6 +56,18 @@ class Search
       return units, number_of_pages
   end
 
+  def users_by_nombre
+    if @keywords.present?
+        users = User.where(nombre_condition).order(:nombre).offset(@offset).limit(@page_size)
+        @number_of_records = User.where(nombre_condition).count
+      else
+        users = User.order(:nombre).offset(@offset).limit(@page_size)
+        @number_of_records = User.count
+      end
+      
+      return users, number_of_pages
+  end
+
 
   def items_by_description
     if @keywords.present?
@@ -87,6 +99,9 @@ class Search
     name_condition = "unaccent(lower(name)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
   end
 
+  def nombre_condition
+    nombre_condition = "unaccent(lower(nombre)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
+  end
   def description_condition
     description_condition = "unaccent(lower(description)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
   end

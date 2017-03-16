@@ -14,12 +14,14 @@ class UnitsController < ApplicationController
 
   # GET /units/1
   # GET /units/1.json
-  def show
-  end
+ 
 
   # GET /units/new
   def new
     @unit = Unit.new
+  end
+ 
+ def show
   end
 
   # GET /units/1/edit

@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # Annotate
 gem 'annotate'
+#paginacion
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 # Front-end
 gem 'bower-rails'

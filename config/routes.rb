@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
 resources :users, only: [:new, :create]
 get '/sign_up', to: 'users#new', as: :sign_up
-
+get 'usuarios' => 'users#index'
 
 resources :sessions, only: [:new, :create, :destroy]
 get 'sessions/new'
@@ -37,6 +37,8 @@ post 'login', to: 'sessions#create'
 get '/log_in', to: 'sessions#new', as: :log_in
 delete '/log_out', to: 'sessions#destroy', as: :log_out
 delete 'logout', to: 'sessions#destroy'
+
+resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
