@@ -40,6 +40,7 @@ gem 'annotate'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
+gem 'cancancan', '~> 1.10'
 # Front-end
 gem 'bower-rails'
 

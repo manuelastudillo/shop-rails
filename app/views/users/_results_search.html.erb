@@ -4,8 +4,9 @@
       <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
     </tr>
     <tr>
-      <th>Código</th>
-
+      <th>nombre</th>
+      <th>Administrador</th>
+      <th>vendedor</th>
       <th>Fecha de Alta</th>
       <th>Fecha de Modificación</th>
       <th colspan="2"></th>
@@ -17,6 +18,8 @@
       <tr>
       
         <td><%= user.nombre %></td>
+        <td><%= user.admin? %></td>
+        <td><%= user.vendedor? %></td>
         <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= user.updated_at.strftime("%d/%m/%Y") %></td>
         <td>

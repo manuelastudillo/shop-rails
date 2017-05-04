@@ -78,7 +78,7 @@ end
     end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :nombre, :apellido, :calle, :telefono, :telefono1, :rol_id, :comuna_id, :fechaingreso, :sueldo, :rut
-)
+    params.require(:user).permit(:email, :password, :password_confirmation, :nombre, :apellido, :calle, :telefono, :telefono1, :rol_id, :comuna_id, :fechaingreso, :sueldo, :rut,
+:admin, :vendedor)
   end
 end

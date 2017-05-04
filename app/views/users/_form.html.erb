@@ -22,6 +22,55 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
   </div>
+
+   <div class="field">
+    <div class="form-group">
+    <%= f.label :vendedor, { class: 'col-sm-1 control-label'} %>
+      <div class="col-sm-5">
+        <%= hidden_field_tag :vendedor, '0' %>
+        <%= f.check_box :vendedor, {checked: true}%>
+      </div>
+    </div>
+
+
+  
+   <div class="field">
+    <div class="form-group">
+    <%= f.label :admin, { class: 'col-sm-1 control-label'} %>
+      <div class="col-sm-5">
+        <%= hidden_field_tag :admin, '0' %>
+        <%= f.check_box :admin, {checked: true}%>
+      </div>
+    </div>
+    <!--
+     <div class="field">
+    <div class="form-group">
+    <#%= f.label :caja,class: 'col-sm-1 control-label'%>
+      <div class="col-sm-5">
+        <#%= f.check_box :caja, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="form-group">
+    <#%= f.label :contador,class: 'col-sm-1 control-label'%>
+      <div class="col-sm-5">
+        <#%= f.check_box :contador, class:'form-control'%>
+      </div>
+    </div>
+  </div>
+-->
+   <div class="field">
+    <div class="form-group">
+    <%= f.label :vendedor, { class: 'col-sm-1 control-label', :style => 'visibility: hidden'} %>
+      <div class="col-sm-5">
+        <%= hidden_field_tag :vendedor, '0' %>
+        <%= f.check_box :vendedor, {checked: true, :style => 'visibility: hidden'}%>
+      </div>
+    </div>
+
+
         <%= f.submit "Aceptar", class: "btn btn-success" %>
       <% end %>
     </div>
