@@ -51,6 +51,7 @@ gem 'cocoon'
 gem 'bootstrap-modal-rails'
  # login
 gem 'sorcery'
+gem 'rut_validator', '~> 0.0.2'
 # autentication mail
 gem 'validates_email_format_of'
 group :development, :test do
