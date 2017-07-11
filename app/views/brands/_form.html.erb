@@ -14,11 +14,17 @@
           </div>
         <% end %>
 
-        <div class="form-group">
-          <%= f.text_field :name, autofocus: true, placeholder: "Nombre", class: "form-control" %>
+        <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :name, "Nombre" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.number_field :name, placeholder: "Nombre", class: "form-control" %>
+          </div>
         </div>
 
-        <%= f.submit "Aceptar", class: "btn btn-success" %>
+                <%= f.submit "Aceptar", class: "btn btn-success" %>
+         <%= link_to 'Atras', brands_url,:class =>"btn btn-info" %>
       <% end %>
     </div>
   </div>

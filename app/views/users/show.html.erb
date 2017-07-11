@@ -1,12 +1,50 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>User</h1>
 
-<p>
-  <strong>nombre:</strong>
-  <%= @user.nombre %>
-</p>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Usuario", users_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+<% end %>
 
-<p>
+<section class="content invoice botones">
+
+ <p>
+    <strong>Nombre:</strong>
+    <%= @user.nombre %>
+  </p>
+  
+ <p>
+    <strong>Apellido:</strong>
+    <%= @user.apellido %>
+  </p>
+  
+  <p>
+    <strong> Rut user:</strong>
+    <%= @user.rut %>
+  </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <p>
+    <strong> Email:</strong>
+    <%= @user.email %>
+  </p>
+  
+  <p>
+    <strong> Telefono:</strong>
+    <%= @user.telefono %>
+  </p>
+  
+  <p>
+    <strong> Fecha De Ingreso:</strong>
+    <%= @user.fechaingreso %>
+  </p>
+
+
+
+  <%= link_to 'Editar', edit_user_url,:class =>"btn btn-warning" %>
+  <%= link_to 'Atras', users_url,:class =>"btn btn-info" %>
+</section>

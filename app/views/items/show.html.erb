@@ -1,39 +1,55 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Producto</h1>
 
-<p>
-  <strong>Code:</strong>
-  <%= @item.code %>
-</p>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Producto</a></li>
+        <li><%= link_to "Producto", items_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+<section class="content invoice botones">
 
-<p>
-  <strong>Brand:</strong>
-  <%= @item.brand %>
-</p>
+ <p>
+    <strong>Codigo:</strong>
+    <%= @item.code %>
+  </p>
+  
+ <p>
+    <strong>Descripción:</strong>
+    <%= @item.description %>
+  </p>
+  
+  <p>
+     <p>
+    <strong> Marca:</strong>
+    <%= @item.brand.name.to_s %>
+  </p>
+   <p>
+    <strong> Categoria:</strong>
+    <%= @item.category.name.to_s %>
+  </p>
+     <p>
+    <strong> Unidad:</strong>
+    <%= @item.unit.name.to_s %>
+  </p>
+ <p>
+    <strong>Stock:</strong>
+    <%= @item.stock %>
+  </p>
+   <p>
+    <strong>Stock Minimo:</strong>
+    <%= @item.min_stock %>
+  </p>
+     <p>
+    <strong>Precio:</strong>
+    <%= @item.price %>
+  </p>
 
-<p>
-  <strong>Unit:</strong>
-  <%= @item.unit %>
-</p>
 
-<p>
-  <strong>Stock:</strong>
-  <%= @item.stock %>
-</p>
 
-<p>
-  <strong>Min stock:</strong>
-  <%= @item.min_stock %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @item.category %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <%= link_to 'Editar', edit_item_url,:class =>"btn btn-warning" %>
+  <%= link_to 'Atras', items_url,:class =>"btn btn-info" %>
+</section>

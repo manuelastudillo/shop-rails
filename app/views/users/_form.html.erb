@@ -5,62 +5,114 @@
 <%= form_for @user do |f| %>
   <%= render 'shared/errors', object: @user %>
         
-  <div class="form-group">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre, class: 'form-control', required: true %>
-  </div>
+        <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :nombre, "Nombre" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.text_field :nombre, autofocus: true, placeholder: "Nombre", class: "form-control" %>
+          </div>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control', required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
-  </div>
+        <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :apellido, "Apellido" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.text_field :apellido, placeholder: "Apellido", class: "form-control", required: true  %>
+          </div>
+        </div>
 
-   <div class="field">
-    <div class="form-group">
-    <%= f.label :vendedor, { class: 'col-sm-1 control-label'} %>
-      <div class="col-sm-5">
-        <%= hidden_field_tag :vendedor, '0' %>
-        <%= f.check_box :vendedor, {checked: true}%>
-      </div>
-    </div>
+       <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :rut, "Rut" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.text_field :rut, placeholder: "Rut", class: "form-control", required: true  %>
+          </div>
+        </div>
 
+       <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :email, "Email" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.email_field :email, placeholder: "Email", class: 'form-control', required: true %>
+          </div>
+        </div>
 
-  
-   <div class="field">
-    <div class="form-group">
-    <%= f.label :admin, { class: 'col-sm-1 control-label'} %>
-      <div class="col-sm-5">
-        <%= hidden_field_tag :admin, '0' %>
-        <%= f.check_box :admin, {checked: true}%>
-      </div>
-    </div>
+       <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :password, "Contraseña" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.password_field :password, placeholder: "Contraseña", class: 'form-control', required: true %>
+          </div>
+        </div>
+
+       <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :password_confirmation, "Confirme Contraseña" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.password_field :password_confirmation, placeholder: "Confirme Contraseña", class: 'form-control', required: true %>
+          </div>
+        </div>
+
     <!--
-     <div class="field">
-    <div class="form-group">
-    <#%= f.label :caja,class: 'col-sm-1 control-label'%>
-      <div class="col-sm-5">
-        <#%= f.check_box :caja, class:'form-control'%>
-      </div>
+      <div class="form-group">
+    <%= f.label :Dirección %>
+    <%= f.text_field :calle, class: 'form-control', required: true %>
     </div>
-  </div>
-  
-  <div class="field">
-    <div class="form-group">
-    <#%= f.label :contador,class: 'col-sm-1 control-label'%>
-      <div class="col-sm-5">
-        <#%= f.check_box :contador, class:'form-control'%>
+    <div class="field">
+        <%= f.label :comuna,"Comuna:" %>
+        <%= f.select('comuna_id', Comuna.all.collect{|d| [d.nombre, d.id]}, class: 'chosen-select') %>
       </div>
-    </div>
-  </div>
--->
+      </div>
+    -->
+
+       <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :telefono, "Telefono" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.text_field :telefono, placeholder: "Telefono", class: "form-control", required: true  %>
+          </div>
+        </div>
+
+       <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :Ingreso, "Ingreso" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.date_select :fechaingreso,  class: "form-control" %>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :sueldo, "Sueldo" %>
+          </div>
+          <div class="col-xs-10">
+            <%= f.text_field :sueldo, placeholder: "Sueldo", class: "form-control", required: true  %>
+          </div>
+        </div>
+
+
+               <div class="form-group row">
+          <div class="col-xs-2">
+            <%= f.label :Admin, "Admin" %>
+          </div>
+          <div class="col-xs-10">
+            <%= hidden_field_tag :admin, '0',  class: "form-control"  %>
+            <%= f.check_box :admin, {checked: true}%>
+          </div>
+        </div>
+
+
+
+ <!--
    <div class="field">
     <div class="form-group">
     <%= f.label :vendedor, { class: 'col-sm-1 control-label', :style => 'visibility: hidden'} %>
@@ -70,8 +122,9 @@
       </div>
     </div>
 
-
+     -->
         <%= f.submit "Aceptar", class: "btn btn-success" %>
+         <%= link_to 'Atras', users_url,:class =>"btn btn-info" %>
       <% end %>
     </div>
   </div>

@@ -30,6 +30,7 @@ end
   # POST /brands
   # POST /brands.json
   def create
+   
     @brand = Brand.new(brand_params)
 
     respond_to do |format|

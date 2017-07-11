@@ -5,6 +5,10 @@ class Item < ApplicationRecord
   belongs_to :proveedor
 
  validates :description, presence: true
+ validates :code, presence: true
+ validates :stock, presence: true
+ validates :min_stock, presence: true
+
 
  def item_description
   self.description + ( (self.brand != nil) ? ' ' + self.brand.name : '' )
@@ -17,4 +21,5 @@ class Item < ApplicationRecord
    ''
   end
  end
+
 end

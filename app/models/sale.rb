@@ -19,7 +19,7 @@ def fecha_de_vencimiento_no_puede_estar_en_el_pasado
 	if date.blank? and date < Date.today
 		errors.add(:date, "ingresaste una fecha que paso")
 end
-
+end
 
 
 

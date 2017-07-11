@@ -1,9 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header  do %>
+    <section class="content-header" >
+      <h1>Marca</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Categoria</a></li>
+        <li><%= link_to "Marca", categories_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+<% end %>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<section class="content invoice botones">
+
+ <p>
+    <strong>Nombre:</strong>
+    <%= @category.name %>
+  </p>
+  
+
+  <%= link_to 'Editar', edit_category_url,:class =>"btn btn-warning" %>
+  <%= link_to 'Atras', categories_url,:class =>"btn btn-info" %>
+</section>
