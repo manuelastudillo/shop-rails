@@ -17,7 +17,7 @@
         <% end %>
 
         <div class="row">
-        <%= f.select :user_id, User.where(id: current_user.id).pluck(:nombre,:id)%>
+<h3 class="pull-left">Vendedor: <%= current_user.nombre %></h3><!--
           <div class="col-xs-5 col-md-4">
             <div class="form-group">
               <div class="col-xs-6 col-md-4 text-left">
@@ -39,6 +39,8 @@
               </div>
             </div>
           </div>
+
+     -->     
         </div>
         <hr>
         <br>

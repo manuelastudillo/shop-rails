@@ -48,7 +48,8 @@
           </a>
           <ul class="dropdown-menu forAnimate" role="menu">
             <li class="<%= current_page?(categories_path) ? "active" : "" %>"><%= link_to 'Categorías', categories_path %></l>
-            <li class="<%= current_page?(brands_path) ? "active" : "" %>"><%= link_to 'Marcas', brands_path %></li>
+            <li class="<%= current_page?(brands_path) ? "active" : "" %>"><%= link_to 'Marcas', brands_path  %></li>
+            <li class="<%= current_page?(proveedors_path) ? "active" : "" %>"><%= link_to 'Proveedors', proveedors_path %></li>
             <li class="<%= current_page?(units_path) ? "active" : "" %>"><%= link_to 'Unidades', units_path %></li>
             <li class="<%= current_page?(users_path) ? "active" : "" %>"><%= link_to 'Usuarios', users_path %></li>
           

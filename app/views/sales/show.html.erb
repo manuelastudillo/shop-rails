@@ -2,8 +2,9 @@
     <div class="row">
         <div class="col-xs-12">
     		<div class="invoice-title">
-    			<h2>Venta</h2>
-    			<h3 class="pull-right">Número # <%= @sale.number %></h3>
+    			<p><h2>Venta</h2></P>
+    			<h3 class="pull-left">Número # <%= @sale.number %></h3>
+                <h3 class="pull-right">Vendedor: <%= current_user.nombre %></h3>
     		</div>
     		<hr>
     		<div class="row">
