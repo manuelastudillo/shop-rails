@@ -46,6 +46,8 @@ gem 'bower-rails'
 
 # Nested forms
 gem 'cocoon'
+#autorizacion
+gem 'pundit'
 
 # Modal
 gem 'bootstrap-modal-rails'

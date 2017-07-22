@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 		include ActiveModel::Validations
   authenticates_with_sorcery!
+  include PermissionsConcern
 
   has_many :sales
   has_many :comunas

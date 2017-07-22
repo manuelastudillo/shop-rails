@@ -17,7 +17,8 @@
     <%= @category.name %>
   </p>
   
-
+    <%if (current_user.admin) %>
   <%= link_to 'Editar', edit_category_url,:class =>"btn btn-warning" %>
+    <%end%>
   <%= link_to 'Atras', categories_url,:class =>"btn btn-info" %>
 </section>

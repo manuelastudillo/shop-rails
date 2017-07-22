@@ -1,5 +1,7 @@
 class UnitsController < ApplicationController
   before_action :set_unit, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_admin!, only: [:new, :create, :update,:destroy]
+
   PAGE_SIZE = 10
 
   # GET /units
