@@ -8,6 +8,9 @@
         <%= button_to new_brand_path, {method: :get, class: "btn btn-success"} do %>
           <span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nueva Marca
         <% end %>
+            <div style="margin-top: 40px;">
+       <%= link_to " Imprimir Marcas", brands_path(@brand, format: "pdf") %>
+              </div>
       </p>
     </div>
   </div>

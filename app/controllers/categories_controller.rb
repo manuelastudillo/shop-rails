@@ -12,7 +12,15 @@ class CategoriesController < ApplicationController
 
     search = Search.new(@page, PAGE_SIZE, @keywords)
     @categories, @number_of_pages = search.categories_by_name
-  end
+    respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = CategoryPdf.new(@categories)
+      send_data pdf.render, filename: "categorias.pdf", type: "application/pdf"
+   end
+ end
+end
+
 
   # GET /categories/1
   # GET /categories/1.json

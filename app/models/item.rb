@@ -4,9 +4,9 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :proveedor
 
- validate :barcode_positivo
+/ validate :barcode_positivo /
  validates :description, presence: true
- validates :code, presence: true
+ /validates :code, presence: true/
  validate :custom_validation_function 
 
  validates :stock, presence: true
@@ -19,8 +19,8 @@ class Item < ApplicationRecord
  validates :min_stock, numericality: {:greater_than_or_equal_to => 0, message: "no se permiten números negativos"}
  validates :min_stock, length: { in: 1..7, message: "la cantidad debe tener entre 1 y 7 caracteres"}
 
- validates :precio, numericality: { :greater_than_or_equal_to => 0, message: "no se permiten números negativos"}
- validates :precio, numericality: {only_integer: true, message: "solo se permiten números enteros"}, length: {minimum: 3, maximum: 6, :message => "El precio debe tener entre 3 y 6 caracteres"}
+ validates :price, numericality: { :greater_than_or_equal_to => 0, message: "no se permiten números negativos"}
+ validates :price, numericality: {only_integer: true, message: "solo se permiten números enteros"}, length: {minimum: 3, maximum: 6, :message => "El precio debe tener entre 3 y 6 caracteres"}
 
  def item_description
   self.description + ( (self.brand != nil) ? ' ' + self.brand.name : '' )

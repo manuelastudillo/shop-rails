@@ -19,7 +19,12 @@
         <td><%= brand.updated_at.strftime("%d/%m/%Y") %></td>
 
    
-                <td>
+            
+          
+      
+           
+       
+                         <td>
           
          <%= button_to brand, {method: :get, class: "btn btn-info"} do %>
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"> </span> Mostrar
@@ -28,6 +33,7 @@
 
         </td>
          <%end%>
+
                    <%if (current_user.admin) %>
         <td>
  

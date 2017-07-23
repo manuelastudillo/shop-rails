@@ -4,7 +4,7 @@
       <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
     </tr>
     <tr>
-      <th>Código</th>
+    <!--    <th>Código</th> -->
       <th>Descripción</th>
       <th>Unidad</th>
       <th>Stock</th>
@@ -20,7 +20,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.code %></td>
+       <!-- <td><%= item.code %></td> -->
         <td><%= item.item_description %></td>
         <td><%= item.unit ? item.unit.name : '' %></td>
         <td><%= item.stock %></td>

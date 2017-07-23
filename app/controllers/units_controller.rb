@@ -12,7 +12,14 @@ class UnitsController < ApplicationController
 
     search = Search.new(@page, PAGE_SIZE, @keywords)
     @units, @number_of_pages = search.units_by_name
-  end
+   respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = UnitPdf.new(@units)
+      send_data pdf.render, filename: "unidades.pdf", type: "application/pdf"
+   end
+ end
+end
 
   # GET /units/1
   # GET /units/1.json

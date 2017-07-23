@@ -11,12 +11,20 @@ class ItemsController < ApplicationController
 
   search = Search.new(@page, PAGE_SIZE, @keywords)
   @items, @number_of_pages = search.items_by_description
+   respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = ItemPdf.new(@items)
+      send_data pdf.render, filename: "Items.pdf", type: "application/pdf"
+   end
  end
-
+end
  # GET /items/1
  # GET /items/1.json
  def show
- end
+
+
+end
 
  # GET /items/new
  def new

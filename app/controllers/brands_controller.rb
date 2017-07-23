@@ -12,11 +12,19 @@ def index
 
  search = Search.new(@page, PAGE_SIZE, @keywords)
  @brands, @number_of_pages = search.brands_by_name
+   respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = BrandPdf.new(@brands)
+      send_data pdf.render, filename: "marcas.pdf", type: "application/pdf"
+   end
+ end
 end
 
   # GET /brands/1
   # GET /brands/1.json
   def show
+    @brand = Brand.find(params[:id])
   end
 
   # GET /brands/new

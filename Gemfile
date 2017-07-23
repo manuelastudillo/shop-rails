@@ -43,7 +43,9 @@ gem 'will_paginate-bootstrap'
 gem 'cancancan', '~> 1.10'
 # Front-end
 gem 'bower-rails'
-
+# pdf
+gem 'prawn'
+gem 'prawn-table'
 # Nested forms
 gem 'cocoon'
 #autorizacion
