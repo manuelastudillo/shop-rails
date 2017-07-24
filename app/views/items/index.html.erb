@@ -5,8 +5,11 @@
     <br>
     <div class="col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5">
       <p>
+        <%if (current_user.admin) %>
+
         <%= button_to new_item_path, {method: :get, class: "btn btn-success"} do %>
           <span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nuevo Artículo
+        <% end %>
         <% end %>
                                     <div style="margin-top: 40px;">
        <%= link_to " Imprimir Productos", items_path(@item, format: "pdf") %>

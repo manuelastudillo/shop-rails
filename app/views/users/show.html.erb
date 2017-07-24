@@ -44,7 +44,8 @@
   </p>
 
 
-
+<%if (current_user.admin) %>
   <%= link_to 'Editar', edit_user_url,:class =>"btn btn-warning" %>
+   <%end%>
   <%= link_to 'Atras', users_url,:class =>"btn btn-info" %>
 </section>

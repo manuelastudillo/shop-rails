@@ -1,5 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:create, :show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:edit,:destroy]
+
   PAGE_SIZE = 10
 
   # GET /sales
@@ -16,7 +18,14 @@ class SalesController < ApplicationController
 
     search = Search.new(@page, PAGE_SIZE, @keywords, current_user)
     @sales, @number_of_pages = search.sales
-  end
+   respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = SalePdf.new(@sales)
+      send_data pdf.render, filename: "Ventas.pdf", type: "application/pdf"
+   end
+ end
+end
 
   # GET /sales/1
   # GET /sales/1.json
@@ -74,6 +83,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:number, :date, :user_id, :cliente_id, sale_details_attributes: [:id, :sale_id, :item_id, :number, :qty, :price, :_destroy] )
+      params.require(:sale).permit(:number, :statem,:date, :user_id, :cliente_id, sale_details_attributes: [:id, :sale_id, :item_id, :number, :qty, :price, :_destroy] )
     end
 end

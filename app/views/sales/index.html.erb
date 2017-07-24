@@ -9,6 +9,9 @@
           <span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nueva Venta
         <% end %>
       </p>
+                                          <div style="margin-top: 40px;">
+       <%= link_to " Imprimir Productos", sales_path(@sale, format: "pdf") %>
+              </div>
     </div>
   </div>
   <%= render partial: 'results_search' %>

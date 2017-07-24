@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_login
   before_action :set_user, only: [:mostrar, :editar, :update, :eliminar]
+  before_action :authenticate_admin!, only: [:new, :create, :update,:destroy]
   PAGE_SIZE = 10
 
 def index
@@ -9,6 +10,13 @@ def index
 
     search = Search.new(@page, PAGE_SIZE, @keywords)
     @users, @number_of_pages = search.users_by_nombre
+    respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = UserPdf.new(@users)
+      send_data pdf.render, filename: "usuarios.pdf", type: "application/pdf"
+   end
+ end
 end
   def new
     @user = User.new

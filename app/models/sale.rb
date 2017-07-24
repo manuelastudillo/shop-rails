@@ -6,7 +6,7 @@ class Sale < ApplicationRecord
     belongs_to :cliente
 	validates :number, presence: true
 	validates :date, presence: true
-validate :fecha_de_vencimiento_no_puede_estar_en_el_pasado
+
 
 
 	accepts_nested_attributes_for :sale_details, reject_if: :sale_detail_rejectable?,
@@ -15,11 +15,6 @@ validate :fecha_de_vencimiento_no_puede_estar_en_el_pasado
 	enum state: [:draft, :confirmed]
 
 
-def fecha_de_vencimiento_no_puede_estar_en_el_pasado
-	if date.blank? and date < Date.today
-		errors.add(:date, "ingresaste una fecha que paso")
-end
-end
 
 
 

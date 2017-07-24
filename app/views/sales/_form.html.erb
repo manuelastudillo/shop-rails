@@ -1,7 +1,5 @@
 
 <div class="container-fluid" id="sale-form">
-
-
   <div class="row">
 
     <div class="panel-body">
@@ -19,38 +17,31 @@
         <% end %>
 
         <div class="row">
-
           <div class="col-xs-5 col-md-4">
             <div class="form-group">
               <div class="col-xs-6 col-md-4 text-left">
                 <%= f.label :number, "Número" %>
               </div>
-
               <div class="col-xs-6 col-md-4">
-                <%= f.text_field :number, placeholder: "Número", class: "form-control" , :disabled=>true%>
+                <%= f.text_field :number, placeholder: "Número", class: "form-control" %>
               </div>
-
             </div>
           </div>
-          
           <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
             <div class="form-group">
               <div class="col-xs-4 col-md-4 text-right">
                 <%= f.label :date, "Fecha" %>
               </div>
-
               <div class="col-xs-8 col-md-6 text-right">
-                <%= f.date_field :date, placeholder: "Fecha", class: "form-control" , :disabled=>true%>
+                <%= f.date_field :date, placeholder: "Fecha", class: "form-control" %>
               </div>
-
             </div>
           </div>
-          <div LIGN=center>
+        </div>
+           <div LIGN=center>
 
                    <h3  style="text-align:center">Vendedor: <%= current_user.nombre %></h3 >
-          </div>
-   
-        </div>
+</div>
         <hr>
         <br>
         <div class="panel-body" id="sale-details">
