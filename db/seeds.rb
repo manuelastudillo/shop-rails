@@ -422,3 +422,25 @@ Comuna.create(nombre: 'San Joaquín',provincias_id: ( Provincia.find_by_nombre('
 Comuna.create(nombre: 'San Ramón',provincias_id: ( Provincia.find_by_nombre('Santiago')).id)
 Comuna.create(nombre: 'Santiago',provincias_id: ( Provincia.find_by_nombre('Santiago')).id)
 Comuna.create(nombre: 'Vitacura',provincias_id: ( Provincia.find_by_nombre('Santiago')).id)
+
+
+User.create(nombre: 'admin',
+    password: '123456',
+    telefono: '123456789',
+    email: 'admin@admin.cl',
+    sueldo:'700000',
+    rut: '92681378',
+    password_confirmation: '123456',
+    fechaingreso: "2017-07-20",
+    admin: true)
+
+User.create(nombre: 'admin1',
+    password: '123456',
+    telefono: '123456789',
+    email: 'admin1@admin.cl',
+    sueldo:'700000',
+    rut: '16995885-8',
+    password_confirmation: '123456',
+    fechaingreso: "2017-07-20",
+    admin: false)
+

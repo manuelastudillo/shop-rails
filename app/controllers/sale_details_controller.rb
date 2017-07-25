@@ -20,8 +20,9 @@ class SaleDetailsController < ApplicationController
     end
     if item_exists
       @sale_detail.qty += params[:sale_details][:qty].to_i
-      @sale_detail.price = params[:sale_details][:price].to_f
+      @sale_detail.price = params[:sale_details][:price].to_f     
       @sale_detail.save!
+
     else
       sale_detail = SaleDetail.new(sale_details_params)
       if @sale.sale_details.last.nil?
@@ -59,6 +60,6 @@ class SaleDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_details_params
-      params.require(:sale_details).permit(:id, :sale_id, :item_id, :item_description, :number, :qty, :price, :_destroy)
+      params.require(:sale_details).permit(:id, :sale_id, :item_id, :item_description, :item_stock, :number, :qty, :price, :_destroy, item_sales_attributes: [:description,:stock, :_destroy])
     end
 end

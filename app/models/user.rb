@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   validates :rut, rut: true
 
+validate :date_is_future?
+
   validates :sueldo,  length: {minimum: 2, maximum: 50, :message => " debe tener entre 2 y 50 caracteres"}
 
   validates :telefono, numericality: { :greater_than_or_equal_to => 0, message: "no se permiten telefono que partan con 0"}
@@ -31,7 +33,9 @@ class User < ApplicationRecord
 VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 validates :email, format: { :with => VALID_EMAIL_REGEX , message: "el formato del correo es invalido" }
 
-
+ def date_is_future?
+        errors.add :fechaingreso, "No se puede ingresar fechas futuras" if fechaingreso.to_date > Time.now
+end
 
 
 end
