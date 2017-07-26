@@ -43,6 +43,11 @@
     <%= @user.fechaingreso %>
   </p>
 
+  <p>
+    <strong> Sueldo:</strong>
+    <%= @user.sueldo %>
+  </p>
+
 
 <%if (current_user.admin) %>
   <%= link_to 'Editar', edit_user_url,:class =>"btn btn-warning" %>

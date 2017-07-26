@@ -23,7 +23,7 @@
                 <%= f.label :number, "Número" %>
               </div>
               <div class="col-xs-6 col-md-4">
-                <%= f.text_field :number, placeholder: "Número", class: "form-control" %>
+                <%= f.text_field :number, placeholder: "Número", class: "form-control" ,:disabled=>true%>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
                 <%= f.label :date, "Fecha" %>
               </div>
               <div class="col-xs-8 col-md-6 text-right">
-                <%= f.date_field :date, placeholder: "Fecha", class: "form-control" %>
+                <%= f.date_field :date, placeholder: "Fecha", class: "form-control" ,:disabled=>true%>
               </div>
             </div>
           </div>
